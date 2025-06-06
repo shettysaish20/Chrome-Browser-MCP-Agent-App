@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+venv/
+dist/
+build/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written into a _MEIPASS folder in the "onefile"
+#  deployment scheme.
+_MEIPASS/
+_MEIPASS2/
+
+# dotenv
+.env
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# C extensions
+*.so
+
+# OS generated files #
+######################
+.DS_Store
+Thumbs.db
+
+## Additional files to ignore
+*/session_logs/
+*/session_summaries_index/
+# prompts/
+*/sandbox_state/
+dom_dumps/
+*/documents/
+*/faiss_index/
+media/
+*/dumps/
+__init__.py
+test_*.py
+integration_test.py
+
+## Unncessary md files
+CTX_GRAPH_FIX_SUMMARY.md
+ENHANCED_SYSTEM_FIX_SUMMARY.md
+FINAL_COMPLETION_SUMMARY.md
+ENHANCED_SYSTEM_DOCS.md
