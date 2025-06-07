@@ -169,29 +169,29 @@ def get_tools() -> list[Tool]:
         ),
         
         # Dropdown Actions
-        Tool(
-            name="get_dropdown_options",
-            description="Get all options from a native dropdown element",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "index": {"type": "integer", "description": "Dropdown element index"}
-                },
-                "required": ["index"]
-            }
-        ),
-        Tool(
-            name="select_dropdown_option",
-            description="Select dropdown option by text",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "index": {"type": "integer", "description": "Dropdown element index"},
-                    "option_text": {"type": "string", "description": "Option text to select"}
-                },
-                "required": ["index", "option_text"]
-            }
-        ),
+        # Tool(
+        #     name="get_dropdown_options",
+        #     description="Get all options from a native dropdown element",
+        #     inputSchema={
+        #         "type": "object",
+        #         "properties": {
+        #             "index": {"type": "integer", "description": "Dropdown element index"}
+        #         },
+        #         "required": ["index"]
+        #     }
+        # ),
+        # Tool(
+        #     name="select_dropdown_option",
+        #     description="Select dropdown option by text",
+        #     inputSchema={
+        #         "type": "object",
+        #         "properties": {
+        #             "index": {"type": "integer", "description": "Dropdown element index"},
+        #             "option_text": {"type": "string", "description": "Option text to select"}
+        #         },
+        #         "required": ["index", "option_text"]
+        #     }
+        # ),
         
         # Drag and Drop
         Tool(
