@@ -48,6 +48,14 @@ target/
 # C extensions
 *.so
 
+## log files
+*.log
+# Jupyter Notebook
+.ipynb_checkpoints
+# IPython
+profile_default/
+# IPython logs
+ipython_config.py
 # OS generated files #
 ######################
 .DS_Store

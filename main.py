@@ -3,7 +3,8 @@ import asyncio
 import yaml
 from dotenv import load_dotenv
 from mcp_servers.multiMCP import MultiMCP
-from agent.agent_loop3 import AgentLoop  # 🆕 Use loop3
+# from agent.agent_loop3 import AgentLoop  # 🆕 Use loop3
+from agent.enhanced_agent_loop import EnhancedAgentLoop
 from pprint import pprint
 
 BANNER = """
@@ -29,10 +30,11 @@ async def interactive() -> None:
     await multi_mcp.initialize()
 
     # Create a single persistent AgentLoop instance
-    loop = AgentLoop(
-        perception_prompt="prompts/perception_prompt.txt",
+    loop = EnhancedAgentLoop(
+        perception_prompt="prompts/perception_prompt2.txt",
         decision_prompt="prompts/decision_prompt.txt",
         summarizer_prompt="prompts/summarizer_prompt.txt",
+        browser_prompt="prompts/browser_prompt.txt",
         multi_mcp=multi_mcp,
         strategy="exploratory"
     )

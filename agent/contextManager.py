@@ -1,7 +1,8 @@
 
+import time
 from utils.utils import log_step, log_error, render_graph
 import networkx as nx
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 from dataclasses import dataclass
 import json
 from collections import defaultdict
@@ -108,9 +109,19 @@ class ContextManager:
     def get_context_snapshot(self):
         def serialize_node_data(data):
             if hasattr(data, '__dict__'):
-                return data.__dict__
+                safe: dict = {}
+                for k, v in data.__dict__.items():
+                    try:
+                        # if this fails, v is not JSON serializable
+                        json.dumps(v)
+                        safe[k] = v
+                    except (TypeError, ValueError):
+                        # fallback: stringify it
+                        safe[k] = str(v)
+                return safe
             return data
-        graph_data = nx.readwrite.json_graph.node_link_data(self.graph, edges="links")
+
+        graph_data = nx.readwrite.json_graph.node_link_data(self.graph, link="links")
 
         for node in graph_data["nodes"]:
             if "data" in node:
@@ -160,4 +171,19 @@ class ContextManager:
             "original_goal_achieved": True,
             "route": "summarize"
         })
+    
+    def add_browser_results(self, browser_results: List[Dict[str, Any]]):
+        """Attach browser operation results to the context graph and update globals."""
+        for i, result in enumerate(browser_results):
+            # generate a unique step id
+            step_id = f"BROWSER_{int(time.time() * 1000)}_{i}"
+            # add it as a completed BROWSER step
+            self.add_step(
+                step_id=step_id,
+                description=result.get("message", "browser_result"),
+                step_type="BROWSER",
+                from_node=self.latest_node_id
+            )
+            # mark it completed and merge any returned vars into globals
+            self.update_step_result(step_id, result)
 

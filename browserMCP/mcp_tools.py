@@ -271,18 +271,18 @@ def get_tools() -> list[Tool]:
                 }
             }
         ),
-        Tool(
-            name="get_interactive_elements",
-            description="Get interactive elements with smart viewport and strict filtering",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "viewport_mode": {"type": "string", "description": "visible or all", "default": "visible"},
-                    "strict_mode": {"type": "boolean", "description": "Use strict filtering", "default": True},
-                    "structured_output": {"type": "boolean", "description": "Return structured output", "default": False}
-                }
-            }
-        ),
+        # Tool(
+        #     name="get_interactive_elements",
+        #     description="Get interactive elements with smart viewport and strict filtering",
+        #     inputSchema={
+        #         "type": "object",
+        #         "properties": {
+        #             "viewport_mode": {"type": "string", "description": "visible or all", "default": "visible"},
+        #             "strict_mode": {"type": "boolean", "description": "Use strict filtering", "default": True},
+        #             "structured_output": {"type": "boolean", "description": "Return structured output", "default": False}
+        #         }
+        #     }
+        # ),
         
         # Session Management
         Tool(
