@@ -115,7 +115,7 @@ Output:
 4. For inputing text, if you locate the description of the entity where you have to enter text, then you must choose the index immediately AFTER the field description in `session_snapshot`.
 4. If the element you want to click is of role = "listbox", then you must call session_snapshot after it, as the index of interactive elements change with the new list options that appear. This should be the last tool and you will not do any page interaction tools after this.
 5. Read the `history` to get an update on the last actions conducted and latest `session_snapshot` to get the latest indexes to click
-
+6. Do not click on "Clear Form", "Report", "Contact Form Owner", "Switch Account", etc. buttons as they might cause unnecessary pop-ups to come on the form and disable you from moving forward.
 ---
 
 ## ✅ ERROR HANDLING RULES
