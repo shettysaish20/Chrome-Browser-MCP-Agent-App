@@ -123,12 +123,12 @@ class Browser:
             
             full_prompt = prompt.format(context = json.dumps(input_json, indent=2), tools = get_tools()).strip()
             
-            self.logger.info(f"Generated prompt: {full_prompt}")
+            # self.logger.info(f"Generated prompt: {full_prompt}")
             
             # Get LLM response
             response = await self.model.generate_text(prompt=full_prompt)
             
-            self.logger.info(f"LLM response: {response}")
+            # self.logger.info(f"LLM response: {response}")
             
             try:
                 # Remove any leading/trailing whitespace and backticks
